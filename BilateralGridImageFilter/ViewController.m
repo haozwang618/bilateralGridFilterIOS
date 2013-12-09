@@ -22,7 +22,8 @@
 @synthesize original=_original;
 @synthesize myImageView = _myImageView;
 @synthesize filtered_img = _filtered_img;
-    
+@synthesize spinner = _spinner;
+
 int f=0;
 int counter;
 - (void)viewDidLoad
@@ -36,6 +37,7 @@ int counter;
         _imagePickerController = [[ UIImagePickerController alloc] init];
         [_imagePickerController setDelegate:self];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,8 +97,11 @@ int counter;
 -(IBAction)filterAction:(id)sender
 {
     if ([_myImageView image] != nil ) {
+        
+        [_spinner startAnimating];
         _filtered_img=[makeBilateralGridFilter filterWithBilateralGrid:[_myImageView image] SpatialSample:(int)[_spaceSampleSlider value] RangeSample:(double)[_rangeSampleSlider value]];
         [_myImageView setImage:_filtered_img];
+        [_spinner stopAnimating];
         ++f;
     }
 }

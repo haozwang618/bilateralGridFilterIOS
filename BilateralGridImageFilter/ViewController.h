@@ -19,6 +19,7 @@
     @property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 @property (strong, nonatomic) IBOutlet UIButton * cameraButton;
 @property (strong, nonatomic) IBOutlet UIButton * photoButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
     
     @property (strong, nonatomic) UIImagePickerController *imagePickerController;
     @property (strong,nonatomic) UIImage* original;

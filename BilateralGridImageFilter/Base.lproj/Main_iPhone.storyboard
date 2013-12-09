@@ -91,6 +91,10 @@
                                     <action selector="toggleAction:" destination="vXZ-lx-hvc" eventType="touchDown" id="76W-z6-wR6"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DZv-7T-Mdo">
+                                <rect key="frame" x="156" y="230" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -104,6 +108,7 @@
                         <outlet property="rangeSampleSlider" destination="K2r-qU-fs6" id="3Jx-Hk-m4U"/>
                         <outlet property="spaceSampleLabel" destination="BUc-EI-oyo" id="EED-nT-Utq"/>
                         <outlet property="spaceSampleSlider" destination="DAg-60-4EV" id="YEX-nl-2re"/>
+                        <outlet property="spinner" destination="DZv-7T-Mdo" id="brK-ae-c2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
