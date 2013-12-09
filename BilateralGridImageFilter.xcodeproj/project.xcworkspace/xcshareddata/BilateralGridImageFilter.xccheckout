@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>966F6157-BC61-49ED-95DA-6BD5CD834224</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BilateralGridImageFilter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E84AC221-1A62-4E90-B27B-DBFD85D73F6D</key>
+		<string>https://github.com/haozwang618/bilateralGridFilterIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BilateralGridImageFilter.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E84AC221-1A62-4E90-B27B-DBFD85D73F6D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/haozwang618/bilateralGridFilterIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E84AC221-1A62-4E90-B27B-DBFD85D73F6D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E84AC221-1A62-4E90-B27B-DBFD85D73F6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BilateralGridImageFilter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -89,6 +89,13 @@ double rangeSample;
     CGContextRelease(context);
     
     UIImage* newImage = [[UIImage alloc] initWithCGImage:imRef];
+    free(rawData);
+    [self freeGridCell:channel0];
+    [self freeGridCell:channel1];
+    [self freeGridCell:channel2];
+    [self freeGridCell:newChannel0Grid];
+    [self freeGridCell:newChannel1Grid];
+    [self freeGridCell:newChannel2Grid];
     return newImage;
 }
     
@@ -224,6 +231,7 @@ double rangeSample;
             //NSLog([NSString stringWithFormat:@"placed values in %d, %d, %d\n", row, col, z]);
         }
     }
+    [self freeNorm:normal];
     return newGrid;
 }
 
@@ -242,6 +250,28 @@ double rangeSample;
     }
     
     return norm;
+}
+
++(void) freeNorm:(double **) normal
+{
+    for(int x=0; x<height;++x)
+    {
+        free(normal[x]);
+    }
+    free(normal);
+
+}
+
++(void) freeGridCell:(gridCell ***) cell
+{
+    for (int y=0; y<gridHeight; ++y)
+    {
+        for (int x=0; x<gridWidth; ++x)
+        {
+            free(cell[y][x]);
+        }
+        free(cell[y]);
+    }
 }
 
 +(gridCell ***) initGrid: (unsigned char*)rawData channel:(int) channel

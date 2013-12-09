@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="83" width="320" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="128" translatesAutoresizingMaskIntoConstraints="NO" id="DAg-60-4EV">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="64" minValue="1" maxValue="128" translatesAutoresizingMaskIntoConstraints="NO" id="DAg-60-4EV">
                                 <rect key="frame" x="-2" y="54" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>

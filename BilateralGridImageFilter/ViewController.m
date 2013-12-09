@@ -88,6 +88,7 @@ int counter;
         {
             [_myImageView setImage:_filtered_img];
         }
+        counter+=1;
     }
 }
  
