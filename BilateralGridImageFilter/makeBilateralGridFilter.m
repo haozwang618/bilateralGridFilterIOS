@@ -55,7 +55,7 @@ double rangeSample;
     bitsPerComponent = 8;
     CGContextRef context = CGBitmapContextCreate(rawData, width, height,
                                                  bitsPerComponent, bytesPerRow, colorSpace,
-                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+                                                 kCGImageAlphaPremultipliedLast);
     //CGColorSpaceRelease(colorSpace);
     
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
@@ -82,14 +82,30 @@ double rangeSample;
     
     [self convolGrid:newChannel2Grid z:z2 oldGrid:channel2 sigmaSpatial:spactial_sig/spaceSample sigmaRange:range_sig_2/rangeSample];
     /////////////////////////////////////
-    unsigned char * newData = [self interp_image:rawData channel0:newChannel0Grid channel1:newChannel1Grid channel2:newChannel2Grid];
-    CGContextRef mContext = CGBitmapContextCreate(newData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
     
-    CGImageRef imRef = CGBitmapContextCreateImage(mContext);
+    CGColorSpaceRef newColorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char * newData = [self interp_image:rawData channel0:newChannel0Grid channel1:newChannel1Grid channel2:newChannel2Grid];
+    
+    //CGContextRef mContext = CGBitmapContextCreate(newData, width, height, bitsPerComponent, bytesPerRow, newColorSpace, kCGImageAlphaPremultipliedLast);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL,
+                                                              newData,
+                                                              width*height*4,
+                                                              NULL);
+    CGImageRef imRef = CGImageCreate(width,
+                                       height,
+                                       8,
+                                       32,
+                                       bytesPerRow,newColorSpace,
+                                       kCGBitmapByteOrderDefault,
+                                       provider,NULL,NO,kCGRenderingIntentDefault);
+   // CGImageRef imRef = CGBitmapContextCreateImage(mContext);
     CGContextRelease(context);
+    CGColorSpaceRelease(newColorSpace);
     
     UIImage* newImage = [[UIImage alloc] initWithCGImage:imRef];
     free(rawData);
+    //free(newData);
     [self freeGridCell:channel0];
     [self freeGridCell:channel1];
     [self freeGridCell:channel2];

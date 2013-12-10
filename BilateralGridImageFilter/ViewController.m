@@ -96,14 +96,47 @@ int counter;
  
 -(IBAction)filterAction:(id)sender
 {
+    
     if ([_myImageView image] != nil ) {
         
         [_spinner startAnimating];
+        dispatch_queue_t lowQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_queue_t mainQueue = dispatch_get_main_queue();
+        [self disableButtons];
+        
+        dispatch_async(lowQueue, ^{
         _filtered_img=[makeBilateralGridFilter filterWithBilateralGrid:[_myImageView image] SpatialSample:(int)[_spaceSampleSlider value] RangeSample:(double)[_rangeSampleSlider value]];
-        [_myImageView setImage:_filtered_img];
-        [_spinner stopAnimating];
-        ++f;
+            
+            dispatch_async(mainQueue, ^{
+                [_myImageView setImage:_filtered_img];
+                [_spinner stopAnimating];
+                ++f;
+                [self enableButtons];
+            });
+        });
+        
+        
     }
+}
+
+-(void) enableButtons
+{
+    [self.cameraButton setEnabled:YES];
+    [self.photoButton setEnabled:YES];
+    [_spaceSampleSlider setEnabled:YES];
+    [_rangeSampleSlider setEnabled:YES];
+    [_filterButton setEnabled:YES];
+    [_ToggleButton setEnabled:YES];
+}
+
+-(void) disableButtons
+{
+    [self.cameraButton setEnabled:NO];
+    [self.photoButton setEnabled:NO];
+    [_spaceSampleSlider setEnabled:NO];
+    [_rangeSampleSlider setEnabled:NO];
+    [_filterButton setEnabled:NO];
+    [_ToggleButton setEnabled:NO];
 }
     
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
